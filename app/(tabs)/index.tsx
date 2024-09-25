@@ -14,17 +14,6 @@ export default function Events() {
         keyExtractor={(item) => item.id}
         className="bg-white"
       />
-
-      {/* {events.map((event) => (
-        <EventListItem
-          key={event.id}
-          title={event.title}
-          description={event.description}
-          datetime={event.datetime}
-          location={event.location}
-          image={event.image}
-        />
-      ))} */}
     </>
   );
 }

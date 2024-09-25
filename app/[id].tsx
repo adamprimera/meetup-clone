@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import { Calendar, ChevronRight, MapPin } from 'lucide-react-native';
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Image, Pressable, Text, View } from 'react-native';
 import events from '~/assets/events.json';
 
 const EventPage = () => {
@@ -37,6 +37,12 @@ const EventPage = () => {
         <ChevronRight size={24} color="lightgrey" />
       </View>
       <Text className="text-lg">{event.description}</Text>
+      <View className="absolute bottom-0 left-0 right-0 flex-row items-center justify-between border-t-2 border-gray-400 p-3 pb-10">
+        <Text className="text-xl font-semibold">Free</Text>
+        <Pressable className="rounded-md bg-rose-500 p-5 px-8">
+          <Text className="text-lg font-bold text-white">Join RSVP</Text>
+        </Pressable>
+      </View>
     </View>
   );
 };

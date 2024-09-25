@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { Bookmark, Share } from 'lucide-react-native';
 import React from 'react';
 import { Image, Text, View } from 'react-native';
@@ -12,11 +13,11 @@ interface EventListItemProps {
 
 const EventListItem = (event: EventListItemProps) => {
   return (
-    <View className="gap-3 p-3">
+    <View className="gap-3 border-b-2 border-gray-100 p-3">
       <View className="flex-row ">
         <View className="flex-1 gap-2">
           <Text className="text-lg font-semibold uppercase text-amber-800">
-            Wed 13, Sep · 19:30 CET
+            {dayjs(event.datetime).format('ddd, D MMM')} · {dayjs(event.datetime).format('h:mm A')}
           </Text>
           <Text className="mr-4 truncate text-ellipsis text-xl font-bold" numberOfLines={1}>
             {event.title}

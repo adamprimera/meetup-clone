@@ -1,22 +1,29 @@
-import dayjs from 'dayjs';
-import { Stack, useLocalSearchParams } from 'expo-router';
-import { Calendar, ChevronRight, MapPin } from 'lucide-react-native';
-import React from 'react';
-import { Image, Pressable, Text, View } from 'react-native';
-import events from '~/assets/events.json';
+import dayjs from 'dayjs'
+import { Stack, useLocalSearchParams } from 'expo-router'
+import { Calendar, ChevronRight, MapPin } from 'lucide-react-native'
+import React from 'react'
+import { Image, Pressable, Text, View } from 'react-native'
+import events from '~/assets/events.json'
 
 const EventPage = () => {
-  const { id } = useLocalSearchParams();
-  const event = events.find((event) => event.id === id);
+  const { id } = useLocalSearchParams()
+  const event = events.find((event) => event.id === id)
   if (!event) {
-    return <Text>Event not found</Text>;
+    return <Text>Event not found</Text>
   }
   return (
     <View className="h-full space-y-4 bg-white p-4">
       <Stack.Screen
-        options={{ title: 'Event', headerBackTitleVisible: false, headerTintColor: 'black' }}
+        options={{
+          title: 'Event',
+          headerBackTitleVisible: false,
+          headerTintColor: 'black',
+        }}
       />
-      <Image source={{ uri: event.image }} className="mb-2 h-64 w-full rounded-lg" />
+      <Image
+        source={{ uri: event.image }}
+        className="mb-2 h-64 w-full rounded-lg"
+      />
       <Text className="mb-4 text-3xl font-bold">{event.title}</Text>
       <View className="mb-4 flex-row items-center gap-4 border-b-2 border-gray-100">
         <Calendar size={24} color="black" />
@@ -40,11 +47,11 @@ const EventPage = () => {
       <View className="absolute bottom-0 left-0 right-0 flex-row items-center justify-between border-t-2 border-gray-400 p-3 pb-10">
         <Text className="text-xl font-semibold">Free</Text>
         <Pressable className="rounded-md bg-rose-500 p-5 px-8">
-          <Text className="text-lg font-bold text-white">Join RSVP</Text>
+          <Text className="text-lg font-bold text-white">Join and RSVP</Text>
         </Pressable>
       </View>
     </View>
-  );
-};
+  )
+}
 
-export default EventPage;
+export default EventPage

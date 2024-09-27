@@ -1,16 +1,16 @@
-import dayjs from 'dayjs';
-import { Link } from 'expo-router';
-import { Bookmark, Share } from 'lucide-react-native';
-import React from 'react';
-import { Image, Pressable, Text, View } from 'react-native';
+import dayjs from 'dayjs'
+import { Link } from 'expo-router'
+import { Bookmark, Share } from 'lucide-react-native'
+import React from 'react'
+import { Image, Pressable, Text, View } from 'react-native'
 
 interface EventListItemProps {
-  id: string;
-  title: string;
-  description: string;
-  datetime: string;
-  location: string;
-  image: string;
+  id: string
+  title: string
+  description: string
+  datetime: string
+  location: string
+  image: string
 }
 
 const EventListItem = (event: EventListItemProps) => {
@@ -23,14 +23,20 @@ const EventListItem = (event: EventListItemProps) => {
               {dayjs(event.datetime).format('ddd, D MMM')} ·{' '}
               {dayjs(event.datetime).format('h:mm A')}
             </Text>
-            <Text className="mr-4 truncate text-ellipsis text-xl font-bold" numberOfLines={1}>
+            <Text
+              className="mr-4 truncate text-ellipsis text-xl font-bold"
+              numberOfLines={1}
+            >
               {event.title}
             </Text>
 
             <Text className="text-gray-700">{event.location}</Text>
           </View>
 
-          <Image source={{ uri: event.image }} className="aspect-video w-2/5 rounded-xl" />
+          <Image
+            source={{ uri: event.image }}
+            className="aspect-video w-2/5 rounded-xl"
+          />
         </View>
 
         {/* Footer */}
@@ -41,7 +47,7 @@ const EventListItem = (event: EventListItemProps) => {
         </View>
       </Pressable>
     </Link>
-  );
-};
+  )
+}
 
-export default EventListItem;
+export default EventListItem

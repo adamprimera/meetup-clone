@@ -1,8 +1,8 @@
 import { Link, Redirect, Tabs } from 'expo-router'
 
+import { Calendar, User } from 'lucide-react-native'
 import { useAuth } from '~/context/AuthProvider'
 import { HeaderButton } from '../../components/HeaderButton'
-import { TabBarIcon } from '../../components/TabBarIcon'
 
 export default function TabLayout() {
     const { isAuthenticated } = useAuth()
@@ -18,9 +18,9 @@ export default function TabLayout() {
             <Tabs.Screen
                 name="index"
                 options={{
-                    title: 'Tab One',
+                    title: 'Events',
                     tabBarIcon: ({ color }) => (
-                        <TabBarIcon name="code" color={color} />
+                        <Calendar size={24} color={color} />
                     ),
                     headerRight: () => (
                         <Link href="/modal" asChild>
@@ -30,12 +30,10 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
-                name="two"
+                name="profile"
                 options={{
-                    title: 'Tab Two',
-                    tabBarIcon: ({ color }) => (
-                        <TabBarIcon name="code" color={color} />
-                    ),
+                    title: 'Profile',
+                    tabBarIcon: ({ color }) => <User size={24} color={color} />,
                 }}
             />
         </Tabs>
